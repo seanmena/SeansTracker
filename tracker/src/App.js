@@ -1,9 +1,12 @@
 import "./App.css";
+import Signin from "./components/Signin";
+import Home from "./screens/Home";
 
 function App() {
   return (
     <div className="App">
-      <h1>Your friendly budget tracker</h1>
+      <Home />
+      <Signin />
     </div>
   );
 }
