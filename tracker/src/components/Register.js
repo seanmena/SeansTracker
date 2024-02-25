@@ -1,10 +1,25 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Register = () => {
   // set up my states for user and password
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:5500/register", {
+        username: username,
+        password: password,
+      });
+      console.log("success", response.date);
+    } catch (error) {
+      console.error("failed", error);
+    }
+  };
 
   return (
     <div className="Register">
@@ -39,7 +54,7 @@ const Register = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleLogin}>Login</button>
+        {/* <button onClick={handleLogin}>Login</button> */}
       </div>
     </div>
   );
